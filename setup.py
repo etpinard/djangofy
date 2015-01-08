@@ -17,7 +17,7 @@ setup(name='djangofy',
       license='MIT',
       packages=['djangofy',
                 'djangofy/utils'
-      ]
+      ],
       install_requires=['beautifulsoup4'],
       zip_safe=False
 )
