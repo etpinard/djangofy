@@ -1,5 +1,5 @@
 """
-structure
+djangofy
 =========
 
 
@@ -83,4 +83,5 @@ def make_sitemaps(group,
 
 
 def make_redirects():
+    # TODO
     return

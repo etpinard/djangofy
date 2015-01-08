@@ -9,15 +9,11 @@ setup(name='djangofy',
       maintainer='Étienne Tétreault-Pinard',
       maintainer_email='etienne.t.pinard@gmail.com',
       url='https://github.com/etpinard/djangofy',
-      description="Convert html soups to django-ready files",
-      long_description="Convert html soups to django-ready files",
+      description="Python package generating django-ready urls and sitemaps",
       classifiers=[
           'Programming Language :: Python :: 2.7'
       ],
       license='MIT',
-      packages=['djangofy',
-                'djangofy/utils'
-      ],
-      install_requires=['beautifulsoup4'],
+      packages=['djangofy'],
       zip_safe=False
 )
