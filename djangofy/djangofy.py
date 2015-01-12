@@ -53,10 +53,10 @@ def make_urls(group,
     # 
     out = (
         "from django.conf.urls import patterns, url\n\n"
-        "import {app_name}.views\n\n\n"
+        "from {app_name}.views import {class_name}\n\n\n"
         "urlpatterns = patterns(\n"
         "{TAB}'',\n"
-    ).format(TAB=TAB, app_name=app_name)
+    ).format(TAB=TAB, app_name=app_name, class_name=class_name)
 
     #
     for page in group:
