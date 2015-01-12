@@ -66,7 +66,7 @@ def make_urls(names, relative_urls,
         out += (
             '{TAB}url("' + item + '",\n'
             '{TAB}{TAB}{class_name}.as_view(\n'
-            '{TAB}{TAB}{TAB}lang=\'IPython-Notebooks\',\n'
+            '{TAB}{TAB}{TAB}lang=\'ipython-notebooks\',\n'
             '{TAB}{TAB}{TAB}notebook=\'{name}\'),\n'
             '{TAB}{TAB}name=\'ipython-notebook-{name}\')'
         ).format(TAB=TAB, class_name=class_name, name=name)
@@ -96,7 +96,7 @@ def make_sitemaps(names, relative_urls,
 
     for name, url in zip(names, relative_urls):
 
-        location = "'/IPython-Notebooks/{url}'".format(url=url)
+        location = "'/ipython-notebooks/{url}'".format(url=url)
         lmfile = (
             "os.path.join(\n{TAB}{TAB}{TAB}{TAB}"
             "settings.TOP_DIR,\n{TAB}{TAB}{TAB}{TAB}"
