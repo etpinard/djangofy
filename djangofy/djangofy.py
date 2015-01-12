@@ -47,9 +47,8 @@ def _make_urls(group,
 
 def make_urls(group,
               path_to_output_file,
-              group_name='group',
               app_name='app', 
-              template_name='template'):
+              class_name='Page'):
 
     # 
     out = (
@@ -62,16 +61,15 @@ def make_urls(group,
     #
     for page in group:
 
-        item = (
-            'r(?P<{group_name})/{page}$>'
-        ).format(group_name=group_name, page=page)
+        item = 'r/{page}$'.format(page=page)
 
         out += (
             '{TAB}url("' + item + '",\n'
-            '{TAB}{TAB}{app_name}'
-            '.views.{template_name})'
-        ).format(TAB=TAB, app_name=app_name, 
-                 template_name=template_name)
+            '{TAB}{TAB}{class_name}.as_view(\n'
+            '{TAB}{TAB}{TAB}lang=\'IPython-Notebooks\'\n'
+            '{TAB}{TAB}{TAB}notebook=\'{page}\'),\n'
+            '{TAB}{TAB}name={page}),'
+        ).format(TAB=TAB, class_name=class_name, page=page)
 
         if page != group[-1]:
             out += ",\n"
