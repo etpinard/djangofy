@@ -61,7 +61,7 @@ def make_urls(group,
     #
     for page in group:
 
-        item = 'r/{page}$'.format(page=page)
+        item = r'/{page}/$'.format(page=page)
 
         out += (
             '{TAB}url("' + item + '",\n'
