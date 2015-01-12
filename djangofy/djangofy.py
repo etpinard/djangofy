@@ -68,7 +68,7 @@ def make_urls(group,
             '{TAB}{TAB}{class_name}.as_view(\n'
             '{TAB}{TAB}{TAB}lang=\'IPython-Notebooks\',\n'
             '{TAB}{TAB}{TAB}notebook=\'{page}\'),\n'
-            '{TAB}{TAB}name={page})'
+            '{TAB}{TAB}name=\'{page}\')'
         ).format(TAB=TAB, class_name=class_name, page=page)
 
         if page != group[-1]:
