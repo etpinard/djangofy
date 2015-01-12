@@ -45,7 +45,7 @@ def _make_urls(group,
     with open(path_to_output_file, 'wb') as f:
         f.write(out)
 
-def make_urls(group,
+def make_urls(names, relative_urls,
               path_to_output_file,
               app_name='app', 
               class_name='Page'):
@@ -59,19 +59,19 @@ def make_urls(group,
     ).format(TAB=TAB, app_name=app_name, class_name=class_name)
 
     #
-    for page in group:
+    for name, url in zip(names, relative_urls):
 
-        item = r'{page}/$'.format(page=page)
+        item = r'{url}/$'.format(url=url)
 
         out += (
             '{TAB}url("' + item + '",\n'
             '{TAB}{TAB}{class_name}.as_view(\n'
             '{TAB}{TAB}{TAB}lang=\'IPython-Notebooks\',\n'
-            '{TAB}{TAB}{TAB}notebook=\'{page}\'),\n'
-            '{TAB}{TAB}name=\'{page}\')'
-        ).format(TAB=TAB, class_name=class_name, page=page)
+            '{TAB}{TAB}{TAB}notebook=\'{name}\'),\n'
+            '{TAB}{TAB}name=\'{name}\')'
+        ).format(TAB=TAB, class_name=class_name, name=name)
 
-        if page != group[-1]:
+        if name != names[-1]:
             out += ",\n"
 
     out += "\n)\n"
