@@ -68,7 +68,7 @@ def make_urls(names, relative_urls,
             '{TAB}{TAB}{class_name}.as_view(\n'
             '{TAB}{TAB}{TAB}lang=\'IPython-Notebooks\',\n'
             '{TAB}{TAB}{TAB}notebook=\'{name}\'),\n'
-            '{TAB}{TAB}name=\'{name}\')'
+            '{TAB}{TAB}name=\'ipython-notebook-{name}\')'
         ).format(TAB=TAB, class_name=class_name, name=name)
 
         if name != names[-1]:
