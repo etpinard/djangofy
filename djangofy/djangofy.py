@@ -80,9 +80,8 @@ def make_urls(names, relative_urls,
         f.write(out)
 
 
-def make_sitemaps(group,
+def make_sitemaps(names, relative_urls,
                   path_to_output_file,
-                  group_name='group',
                   app_name='app', 
                   template_name='template'):
     """
@@ -95,9 +94,9 @@ def make_sitemaps(group,
         "{TAB}items = [\n"
     ).format(TAB=TAB)
 
-    for page in group:
+    for name, url in zip(names, relative_urls):
 
-        location = "'/IPython-Notebooks/{page}'".format(page=page)
+        location = "'/IPython-Notebooks/{url}'".format(url=url)
         lmfile = (
             "os.path.join(\n{TAB}{TAB}{TAB}{TAB}"
             "settings.TOP_DIR,\n{TAB}{TAB}{TAB}{TAB}"
@@ -106,9 +105,9 @@ def make_sitemaps(group,
             "'api_docs',\n{TAB}{TAB}{TAB}{TAB}"
             "'includes',\n{TAB}{TAB}{TAB}{TAB}"
             "'ipython_notebooks',\n{TAB}{TAB}{TAB}{TAB}"
-            "'{page}',\n{TAB}{TAB}{TAB}{TAB}"
+            "'{name}',\n{TAB}{TAB}{TAB}{TAB}"
             "'body.html')"
-        ).format(page=page, TAB=TAB)
+        ).format(url=url, name=name, TAB=TAB)
 
         out += (
             "{TAB}{TAB}dict(\n"
@@ -118,7 +117,7 @@ def make_sitemaps(group,
             "{TAB}{TAB})"
         ).format(location=location, lmfile=lmfile, TAB=TAB)
 
-        if page != group[-1]:
+        if name != names[-1]:
             out += ",\n"
 
     out += (
