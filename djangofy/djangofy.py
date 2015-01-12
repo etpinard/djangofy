@@ -66,7 +66,7 @@ def make_urls(group,
         out += (
             '{TAB}url("' + item + '",\n'
             '{TAB}{TAB}{class_name}.as_view(\n'
-            '{TAB}{TAB}{TAB}lang=\'IPython-Notebooks\'\n'
+            '{TAB}{TAB}{TAB}lang=\'IPython-Notebooks\',\n'
             '{TAB}{TAB}{TAB}notebook=\'{page}\'),\n'
             '{TAB}{TAB}name={page})'
         ).format(TAB=TAB, class_name=class_name, page=page)
