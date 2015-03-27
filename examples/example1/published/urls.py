@@ -1,14 +1,23 @@
 from django.conf.urls import patterns, url
 
-import app.views
+from app.views import Page
 
 
 urlpatterns = patterns(
     '',
-    url("r(?P<group)/page1$>",
-        app.views.template),
-    url("r(?P<group)/page2$>",
-        app.views.template),
-    url("r(?P<group)/page3$>",
-        app.views.template)
+    url("some-exciting-article/$",
+        Page.as_view(
+            lang='IPython-Notebooks',
+            notebook='page1'),
+        name='page1'),
+    url("another-exciting-article/$",
+        Page.as_view(
+            lang='IPython-Notebooks',
+            notebook='page2'),
+        name='page2'),
+    url("you-must-read-this/$",
+        Page.as_view(
+            lang='IPython-Notebooks',
+            notebook='page3'),
+        name='page3')
 )
